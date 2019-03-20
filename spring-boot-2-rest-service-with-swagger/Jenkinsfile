@@ -15,11 +15,13 @@ volumes: [
             container('maven') {
                 
                 stage('Build a Maven project') {
+                    sh 'cd spring-boot-2-rest-service-with-swagger/'
                     sh 'mvn -B clean install'
                 }
                 
                 stage 'Maven Static Analysis'
                     withSonarQubeEnv {
+                        sh 'cd spring-boot-2-rest-service-with-swagger/'
                         sh "mvn  sonar:sonar"
                     }
 // TODO
@@ -28,10 +30,7 @@ volumes: [
 //                    sh 'mvn -B -Djavax.net.ssl.trustStore=/path/to/cacerts dependency-check:check'
 //                }
                 
-                
-                stage('Build a Maven project') {
-                    sh 'mvn -B clean install'
-                }
+        
             
             }
         }
