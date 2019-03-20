@@ -20,7 +20,7 @@ volumes: [
                 }
                 
                 stage 'Maven Static Analysis'
-                    withSonarQubeEnv {
+                    withSonarQubeEnv('SonarQube'){
                        // sh 'cd spring-boot-2-rest-service-with-swagger/'
                         sh "mvn  sonar:sonar -f spring-boot-2-rest-service-with-swagger/pom.xml"
                     }
