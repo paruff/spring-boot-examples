@@ -14,6 +14,9 @@ volumes: [
             checkout scm
             container('maven') {
                 
+                stage('Build a Maven project') {
+                    sh 'mvn -B clean install'
+                }
                 
                 stage 'Maven Static Analysis'
                     withSonarQubeEnv {
