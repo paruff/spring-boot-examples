@@ -15,14 +15,14 @@ volumes: [
             container('maven') {
                 
                 stage('Build a Maven project') {
-                    sh 'cd spring-boot-2-rest-service-with-swagger/'
-                    sh 'mvn -B clean install'
+                   // sh 'cd spring-boot-2-rest-service-with-swagger/'
+                    sh 'mvn -B clean install -f spring-boot-2-rest-service-with-swagger/pom.xml'
                 }
                 
                 stage 'Maven Static Analysis'
                     withSonarQubeEnv {
-                        sh 'cd spring-boot-2-rest-service-with-swagger/'
-                        sh "mvn  sonar:sonar"
+                       // sh 'cd spring-boot-2-rest-service-with-swagger/'
+                        sh "mvn  sonar:sonar -f spring-boot-2-rest-service-with-swagger/pom.xml"
                     }
 // TODO
 //  sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target               
