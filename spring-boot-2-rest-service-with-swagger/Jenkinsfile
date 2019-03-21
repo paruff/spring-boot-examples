@@ -16,7 +16,7 @@ volumes: [
                 
                 stage('Build a Maven project') {
                    // sh 'cd spring-boot-2-rest-service-with-swagger/'
-                    sh 'mvn -B -DskipTests clean install -f spring-boot-2-rest-service-with-swagger/pom.xml'
+                    sh 'mvn -B clean install -f spring-boot-2-rest-service-with-swagger/pom.xml'
                 }
                 
                 stage 'Maven Static Analysis'
